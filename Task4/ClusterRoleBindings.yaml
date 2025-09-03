@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: List
+items:
+  - apiVersion: rbac.authorization.k8s.io/v1
+    kind: ClusterRoleBinding
+    metadata:
+      name: cluster-read
+    subjects:
+      - kind: User
+        name: elk
+        apiGroup: rbac.authorization.k8s.io
+      - kind: User
+        name: kuber-team
+        apiGroup: rbac.authorization.k8s.io
+    roleRef:
+      kind: ClusterRole
+      name: cluster-read
+      apiGroup: rbac.authorization.k8s.io
+  - apiVersion: rbac.authorization.k8s.io/v1
+    kind: ClusterRoleBinding
+    metadata:
+      name: cluster-write
+    subjects:
+      - kind: User
+        name: kuber-team
+        apiGroup: rbac.authorization.k8s.io
+    roleRef:
+      kind: ClusterRole
+      name: cluster-write
+      apiGroup: rbac.authorization.k8s.io
