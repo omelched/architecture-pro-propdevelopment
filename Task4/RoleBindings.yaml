@@ -1,0 +1,158 @@
+apiVersion: v1
+kind: List
+items:
+  - apiVersion: rbac.authorization.k8s.io/v1
+    kind: RoleBinding
+    metadata:
+      name: client-services-write
+      namespace: client-services
+    subjects:
+      - kind: User
+        name: deploy-agent
+        apiGroup: rbac.authorization.k8s.io
+    roleRef:
+      kind: Role
+      name: client-services-write
+      apiGroup: rbac.authorization.k8s.io
+
+  - apiVersion: rbac.authorization.k8s.io/v1
+    kind: RoleBinding
+    metadata:
+      name: consumer-services-write
+      namespace: consumer-services
+    subjects:
+      - kind: User
+        name: deploy-agent
+        apiGroup: rbac.authorization.k8s.io
+    roleRef:
+      kind: Role
+      name: consumer-services-write
+      apiGroup: rbac.authorization.k8s.io
+
+  - apiVersion: rbac.authorization.k8s.io/v1
+    kind: RoleBinding
+    metadata:
+      name: local-services-write
+      namespace: local-services
+    subjects:
+      - kind: User
+        name: deploy-agent
+        apiGroup: rbac.authorization.k8s.io
+    roleRef:
+      kind: Role
+      name: local-services-write
+      apiGroup: rbac.authorization.k8s.io
+
+  - apiVersion: rbac.authorization.k8s.io/v1
+    kind: RoleBinding
+    metadata:
+      name: client-services-read
+      namespace: client-services
+    subjects:
+      - kind: User
+        name: client-services-developer
+        apiGroup: rbac.authorization.k8s.io
+      - kind: User
+        name: client-services-devops
+        apiGroup: rbac.authorization.k8s.io
+    roleRef:
+      kind: Role
+      name: client-services-read
+      apiGroup: rbac.authorization.k8s.io
+
+  - apiVersion: rbac.authorization.k8s.io/v1
+    kind: RoleBinding
+    metadata:
+      name: consumer-services-read
+      namespace: consumer-services
+    subjects:
+      - kind: User
+        name: consumer-services-developer
+        apiGroup: rbac.authorization.k8s.io
+      - kind: User
+        name: consumer-services-devops
+        apiGroup: rbac.authorization.k8s.io
+    roleRef:
+      kind: Role
+      name: consumer-services-read
+      apiGroup: rbac.authorization.k8s.io
+
+  - apiVersion: rbac.authorization.k8s.io/v1
+    kind: RoleBinding
+    metadata:
+      name: local-services-read
+      namespace: local-services
+    subjects:
+      - kind: User
+        name: local-services-developer
+        apiGroup: rbac.authorization.k8s.io
+      - kind: User
+        name: local-services-devops
+        apiGroup: rbac.authorization.k8s.io
+    roleRef:
+      kind: Role
+      name: local-services-read
+      apiGroup: rbac.authorization.k8s.io
+
+  - apiVersion: rbac.authorization.k8s.io/v1
+    kind: RoleBinding
+    metadata:
+      name: logging-read
+      namespace: logging
+    subjects:
+      - kind: User
+        name: client-services-developer
+        apiGroup: rbac.authorization.k8s.io
+      - kind: User
+        name: client-services-devops
+        apiGroup: rbac.authorization.k8s.io
+      - kind: User
+        name: consumer-services-developer
+        apiGroup: rbac.authorization.k8s.io
+      - kind: User
+        name: consumer-services-devops
+        apiGroup: rbac.authorization.k8s.io
+      - kind: User
+        name: local-services-developer
+        apiGroup: rbac.authorization.k8s.io
+      - kind: User
+        name: local-services-devops
+        apiGroup: rbac.authorization.k8s.io
+    roleRef:
+      kind: Role
+      name: logging-read
+      apiGroup: rbac.authorization.k8s.io
+
+  - apiVersion: rbac.authorization.k8s.io/v1
+    kind: RoleBinding
+    metadata:
+      name: secrets-read
+      namespace: secrets
+    subjects:
+      - kind: User
+        name: deploy-agent
+        apiGroup: rbac.authorization.k8s.io
+    roleRef:
+      kind: Role
+      name: secrets-read
+      apiGroup: rbac.authorization.k8s.io
+
+  - apiVersion: rbac.authorization.k8s.io/v1
+    kind: RoleBinding
+    metadata:
+      name: secrets-write
+      namespace: secrets
+    subjects:
+      - kind: User
+        name: client-services-devops
+        apiGroup: rbac.authorization.k8s.io
+      - kind: User
+        name: consumer-services-devops
+        apiGroup: rbac.authorization.k8s.io
+      - kind: User
+        name: local-services-devops
+        apiGroup: rbac.authorization.k8s.io
+    roleRef:
+      kind: Role
+      name: secrets-write
+      apiGroup: rbac.authorization.k8s.io

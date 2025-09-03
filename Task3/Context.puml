@@ -1,0 +1,22 @@
+@startuml Context
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+Person_Ext(owner, "Собственник", "Собственник недвижимости")
+System_Ext(authService, "authService", "Сервис аутентификации")
+System_Ext(mobileApp, "mobileApp", "Мобильное приложение")
+System_Ext(intercomService, "Сервис по управлению домофонами")
+System_Ext(barrierService, "Сервис по управлению шлагбаумом")
+System_Ext(mobileApp, "mobileApp", "Мобильное приложение")
+
+System(smartHouse, "smart-house", "Система умного дома")
+
+Rel(owner, mobileApp, "Взаимодействует с приложением")
+Rel(mobileApp, authService, "Выполняет SSO аутентификацию")
+Rel(smartHouse, authService, "Проверяет результат SSO аутентификации, получает права клиента")
+Rel(mobileApp, smartHouse, "Управляет умным домом")
+Rel(smartHouse, intercomService, "Передает отпечатки биометрии")
+Rel(smartHouse, intercomService, "Запрашивает открытие двери")
+Rel(smartHouse, barrierService, "Запрашивает отпечатки гос.номеров")
+Rel(smartHouse, barrierService, "Запрашивает подъем шлагбаума")
+
+@enduml

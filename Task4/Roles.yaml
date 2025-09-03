@@ -1,0 +1,93 @@
+apiVersion: v1
+kind: List
+items:
+  - apiVersion: rbac.authorization.k8s.io/v1
+    kind: Role
+    metadata:
+      namespace: client-services
+      name: client-services-write
+    rules:
+      - apiGroups: [""]
+        resources: ["pods"]
+        verbs: ["create", "update", "patch"]
+  - apiVersion: rbac.authorization.k8s.io/v1
+    kind: Role
+    metadata:
+      namespace: consumer-services
+      name: consumer-services-write
+    rules:
+      - apiGroups: [""]
+        resources: ["pods"]
+        verbs: ["create", "update", "patch"]
+  - apiVersion: rbac.authorization.k8s.io/v1
+    kind: Role
+    metadata:
+      namespace: local-services
+      name: local-services-write
+    rules:
+      - apiGroups: [""]
+        resources: ["pods"]
+        verbs: ["create", "update", "patch"]
+  - apiVersion: rbac.authorization.k8s.io/v1
+    kind: Role
+    metadata:
+      namespace: client-services
+      name: client-services-read
+    rules:
+      - apiGroups: [""]
+        resources: ["pods"]
+        verbs: ["get", "list", "watch"]
+  - apiVersion: rbac.authorization.k8s.io/v1
+    kind: Role
+    metadata:
+      namespace: consumer-services
+      name: consumer-services-read
+    rules:
+      - apiGroups: [""]
+        resources: ["pods"]
+        verbs: ["get", "list", "watch"]
+  - apiVersion: rbac.authorization.k8s.io/v1
+    kind: Role
+    metadata:
+      namespace: local-services
+      name: local-services-read
+    rules:
+      - apiGroups: [""]
+        resources: ["pods"]
+        verbs: ["get", "list", "watch"]
+  - apiVersion: rbac.authorization.k8s.io/v1
+    kind: Role
+    metadata:
+      namespace: logging
+      name: logging-read
+    rules:
+      - apiGroups: [""]
+        resources: ["pods"]
+        verbs: ["get", "list", "watch"]
+  - apiVersion: rbac.authorization.k8s.io/v1
+    kind: Role
+    metadata:
+      namespace: secrets
+      name: secrets-read
+    rules:
+      - apiGroups: [""]
+        resources: ["pods"]
+        verbs: ["get", "list", "watch"]
+  - apiVersion: rbac.authorization.k8s.io/v1
+    kind: Role
+    metadata:
+      namespace: dev-ops
+      name: dev-ops-write
+    rules:
+      - apiGroups: [""]
+        resources: ["pods"]
+        verbs: ["create", "update", "patch"]
+  - apiVersion: rbac.authorization.k8s.io/v1
+    kind: Role
+    metadata:
+      namespace: secrets
+      name: secrets-write
+    rules:
+      - apiGroups: [""]
+        resources: ["pods"]
+        verbs: ["create", "update", "patch"]
